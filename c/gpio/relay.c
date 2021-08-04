@@ -7,14 +7,14 @@ int main (void)
 {
   /* Inicializa el pin digital como salida */
 	DDRD = 0xFF;
-
+  int hex=0;
 	while(1) 
   {
-		PORTD = 0xFF;    /* Enciende LED */
+		PORTD = ~hex;    /* Enciende LED */
 		_delay_ms(BLINK_DELAY_MS);
+    if(++hex > 0xFF)
+      hex = 0;
 
-		PORTD &= 0;   /* Apaga LED */
-		_delay_ms(BLINK_DELAY_MS);
 	}
 	return 0;
 }
