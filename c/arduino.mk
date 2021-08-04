@@ -27,9 +27,9 @@ F_CPU = 16000000UL
 AVRDUDE = avrdude
 
 # Arduino UNO Rev3
-#PORT = /dev/ttyACM0
+PORT = /dev/ttyACM0
 # Arduino UNO CH430
-PORT = /dev/ttyUSB0
+#PORT = /dev/ttyUSB0
 BAUD = 115200
 PROTOCOL = arduino
 PART = ATMEGA328P

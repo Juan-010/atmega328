@@ -1,5 +1,5 @@
-PROG = blink
-SRC += blink.c
+PROG = relay
+SRC += relay.c
 
 include ../arduino.mk
 

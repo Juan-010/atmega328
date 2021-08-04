@@ -6,14 +6,14 @@
 int main (void)
 {
   /* Inicializa el pin digital como salida */
-	DDRB |= _BV(DDB5);
+	DDRD = 0xFF;
 
 	while(1) 
   {
-		PORTB |= _BV(PORTB5);    /* Enciende LED */
+		PORTD = 0xFF;    /* Enciende LED */
 		_delay_ms(BLINK_DELAY_MS);
 
-		PORTB &= ~_BV(PORTB5);   /* Apaga LED */
+		PORTD &= 0;   /* Apaga LED */
 		_delay_ms(BLINK_DELAY_MS);
 	}
 	return 0;
