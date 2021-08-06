@@ -2,13 +2,13 @@
 #include <stdint.h>
 
 #define BAUD_RATE_115200  8
+#define BAUD_RATE_9600 103
 
 int main()
 {
-  uint16_t ubrr = BAUD_RATE_115200;
+  uint16_t ubrr = BAUD_RATE_9600;
 
-	DDRB |= _BV(DDB1);        /* Led rojo, salida */
-	DDRD |= _BV(DDD5);        /* Led verde, salida */
+	DDRB |= _BV(DDB5);        /* Led rojo, salida */
 
   /* Configuración el baud-rate */
   UBRR0H = (ubrr >> 8) & 0xFF;   /* Byte más significativo */
@@ -25,13 +25,8 @@ int main()
     switch(UDR0) {
       case 'r':
       case 'R':
-        PORTB ^= _BV(PORTB1); /* Cambia estado de LED rojo */
+        PORTB ^= _BV(PORTB5); /* Cambia estado de LED rojo */
         break;
-
-      case 'v':
-      case 'V':
-        PORTD ^= _BV(PORTD5); /* Cambia estado de LED verde */
-        break;			
     }
   }
   return 0;

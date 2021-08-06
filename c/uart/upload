@@ -1,0 +1,6 @@
+avr-gcc -Os -DF_CPU=16000000UL -mmcu=atmega328p -c -o ${1}.o ${1}
+avr-gcc -mmcu=atmega328p -o ${1}.o -o ${1}.elf
+avr-objcopy -O ihex -R .eeprom ${1}.elf ${1}.hex
+avrdude -F -V -c arduino -p ATMEGA328P -P ${2} -b 9600 -U flash_
+:w:${1}.hex
+  
